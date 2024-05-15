@@ -10,5 +10,8 @@ namespace LibraryManagementSystem.Application.Features.Book.Commands.LendBookCom
     public sealed record class LendBookCommand : IRequest<Response<LendBookResponse>>
     {
         public Guid BookId { get; set; }
+        public string UserName { get; set; }
+        public string UserLastName { get; set; }
+        public DateTime DateTo { get; set; }
     }
 }

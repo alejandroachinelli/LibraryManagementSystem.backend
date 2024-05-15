@@ -92,10 +92,11 @@ namespace LibraryManagementSystem.Application.WebApi.Controllers
             return BadRequest(response);
         }
 
-        [HttpPut("ReturnAllBook")]
+        [HttpDelete("ReturnAllBook")]
         [EndpointSummary("Realiza la devolucion de todos los libros prestados.")]
-        public async Task<IActionResult> ReturnAllBook([FromBody] ReturnAllBookCommand command)
+        public async Task<IActionResult> ReturnAllBook()
         {
+            var command = new ReturnAllBookCommand();
             var response = await mediator.Send(command);
 
             if (response.IsSuccess)

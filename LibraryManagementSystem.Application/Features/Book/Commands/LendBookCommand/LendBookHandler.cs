@@ -40,10 +40,14 @@ namespace LibraryManagementSystem.Application.Features.Book.Commands.LendBookCom
 
             var lend = new LibraryManagementSystem.Domain.Entities.LoanedBook();
 
+            lend.BookId = request.BookId;
             lend.Title = book.Title;
             lend.Authors = book.Authors;
             lend.Category = book.Category;
             lend.DateFrom = DateTime.Now;
+            lend.DateTo = request.DateTo;
+            lend.UserName = request.UserName;
+            lend.UserLastName = request.UserLastName;
 
             var newLend = await unitOfWork.LoanedBookRepository.AddAsync(lend);
 
